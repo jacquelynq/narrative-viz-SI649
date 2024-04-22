@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+<link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>SI649 Project 3</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- Main CSS -->
+<link href="./assets/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+						<a class="text-danger" href="https://pubs.acs.org/doi/full/10.1021/acs.est.3c00360?casa_token=aGTArlVGbsIAAAAA:-q0Z6Ndu9RY56zb1hTCHpWJPXuxc7ggIIXEH-EMgAhNtqKjfik033XXhbw5JrVcQgDChkt1DtJAiM-Q">Article in Environmental Science and Technology</a>
+					</p>
+					<h1 class="display-4 secondfont mb-3 font-weight-bold">Streamlining sensor maintenance for a data-richer world</h1>
+					<p class="mb-3">
+						 We need be smarter about how we collect environmental data if we want to unlock the power of AI for water infrastructure management.
+					</p>
+					<div class="d-flex align-items-center">
+						<img class="rounded-circle" src="assets/img/demo/profilepic.jpg" width="70">
+						<small class="ml-2">Jacquelyn Schmidt <span class="text-muted d-block">April 22, 2024 &middot; 5 min. read</span>
+						</small>
+					</div>
+				</div>
+				<div class="col-md-6 pr-0">
+					<img src="./assets/img/demo/nodephoto2.jpeg">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Header -->
+    
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+	<div class="row justify-content-center">
+		<div class="col-md-12 col-lg-9">
+			<article class="article-post">
+				<p>With the growing popularity of artificial intelligence, the world is developing a voracious appetite for data. Large, high-quality datasets are needed to power the insights provided by data-driven algorithms. Creating these datasets is easier said than done, however. </p>
+				<p>In the world of environmental sensing, collecting data is a particular challenge. In the great outdoors, conditions are not usually favorable for the electronic sensors needed to automatically measure key variables of interest. Unlike in a laboratory or factory setting, sensors deployed outside are liable to be rained on, to be knocked out of place by wind or animals, or to be broken in a myriad number of ways. It is impossible to control for everything that could go wrong, and so <a href="https://academic.oup.com/bioscience/article/63/7/574/289294">sensor network maintenance is a never-ending task.</a></p>
+				<p>That being said, sensor network maintenance is expensive. At the United States Geological Service, the nation’s foremost provider of hydrologic data, a single water gauge station costs <a href="https://www.everycrsreport.com/files/20190418_R45695_375a1752e786ba50ac96cf3744caee9e5fe956df.pdf">upwards of $20,000 a year in upkeep</a>. Much of this cost can be attributed to the manual labor involved in monitoring and validating sensor data, as well as sending staff out to the field to fix any issues that arise. While the demand for real-time water data is growing, at this price point, it is impossible to collect the volume of data needed to support new, high-tech programs like <a href="https://www.mdpi.com/2073-4441/12/2/570">real-time flood prediction</a>, and <a href="https://pubs.acs.org/doi/full/10.1021/acs.est.5b05870">coordinated, city-scale stormwater management systems</a>.</p>
+				<p>One way to reduce the cost of environmental data is to implement <a href="https://www.sciencedirect.com/science/article/pii/S1364815222000706">automated time series monitoring</a>. In other words, instead of having a human constantly checking in to make sure every sensor is working as it should, develop an algorithm capable of altering maintenance staff when a sensor breaks. The challenge then becomes, how do we automatically determine when a sensor breaks?</p>
+				<p>Even sensors measuring the same variable may return time series showing a wide variety of trends. Moreover, when sensors break, the resulting noisy data may also appear different, depending on what went wrong in the field.</p>
+				<iframe src="sensor_network_data.html" width="100%" height="775" style="border:none;"></iframe>
+				<p>One strategy posed by <a href="https://pubs.acs.org/doi/full/10.1021/acs.est.3c00360?casa_token=aGTArlVGbsIAAAAA:-q0Z6Ndu9RY56zb1hTCHpWJPXuxc7ggIIXEH-EMgAhNtqKjfik033XXhbw5JrVcQgDChkt1DtJAiM-Q">Schmidt and Kerkez (2023)</a>, is to look at the dynamics of the sensor data.</p>
+				<p>Dynamics describe how something moves, and in the natural environment, they are governed by natural processes. When measuring environmental variables, we usually expect them to change continuously and smoothly, according to the laws of physics, chemistry, and biology. When an environmental sensor returns clean data, the dynamics of that data should reflect that.</p>
+				<iframe src="clean_data_animation.html" width="100%" height="625" style="border:none;"></iframe>
+				<p>When a sensor breaks, however, those assumptions get thrown out the window. One of the most common ways an environmental sensor can break down in the field is due to an obstruction — something blocking the sensor’s line of sight. An ultrasonic distance sensor measuring water depth, for example, could be obstructed when something gets in between the sensor’s receptor and the surface of the water. In this case, the sensor reading will either go flat (showing no change), or it will bounce between taking measurements of the water level and the obstructing object. </p>
+				<iframe src="noisy_data_animation.html" width="100%" height="625" style="border:none;"></iframe>
+				<p>Even obstructions that might be hard to see in the time series data become glaringly obvious when looking at a plot of dynamics. This observation serves as the basis of the automated sensor fault detection algorithm presented in the paper.</p> 
+				<p>Reducing the cost of collecting environmental sensor data is a crucial step towards unlocking the power of artificial intelligence in societally-important industries such as urban planning, infrastructure management, and environmental conversation.</p>
+				<br>
+			</article>
+		</div>
+	</div>
+</div>
+    
+<!-- <div class="container pt-4 pb-4">
+	<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card border-0 mb-4 box-shadow h-xl-300">
+				<div style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+				</div>
+				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+					<h2 class="h4 font-weight-bold">
+					<a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+					</h2>
+					<p class="card-text">
+						 Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
+					</p>
+					<div>
+						<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="flex-md-row mb-4 box-shadow h-xl-300">
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="./assets/img/demo/blog4.jpg">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps of Earth</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Jake Bittle in LOVE/HATE
+						</div>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="./assets/img/demo/blog5.jpg">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="./article.html">Underwater museum brings hope to Lake Titicaca</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Jake Bittle in LOVE/HATE
+						</div>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="./assets/img/demo/blog6.jpg">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Jake Bittle in LOVE/HATE
+						</div>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- End Main -->
+    
+<!--------------------------------------
+FOOTER
+--------------------------------------->
+<div class="container mt-5">
+	<footer class="bg-white border-top p-3 text-muted small">
+	<div class="row align-items-center justify-content-between">
+		<!-- <div>
+			<span class="navbar-brand mr-2"><strong>Mundana</strong></span> Copyright &copy;
+			<script>document.write(new Date().getFullYear())</script>
+			 . All rights reserved.
+		</div> -->
+		<div>
+			Learn more about this project by checking out the reserach article, <a href="https://pubs.acs.org/doi/full/10.1021/acs.est.3c00360?casa_token=aGTArlVGbsIAAAAA:-q0Z6Ndu9RY56zb1hTCHpWJPXuxc7ggIIXEH-EMgAhNtqKjfik033XXhbw5JrVcQgDChkt1DtJAiM-Q">Machine Learning-Assisted, Process-Based Quality Control for Detecting Compromised Environmental Sensors.</a>
+		</div>
+	</div>
+	</footer>
+</div>
+<!-- End Footer -->
+    
+<!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+<script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+<script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+</html>
